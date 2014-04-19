@@ -69,7 +69,7 @@
 			<key>match</key>
 			<string>\+.+\+</string>
 			<key>name</key>
-			<string>meta.image.pillar</string>
+			<string>markup.underline.link.pillar</string>
 		</dict>
 		<dict>
 			<key>match</key>
