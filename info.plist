@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>contactEmailRot13</key>
+	<string>lhevl.glzpuhx@hfv.pu</string>
+	<key>contactName</key>
+	<string>Yuriy Tymchuk</string>
+	<key>description</key>
+	<string>Support for &lt;a href="https://github.com/DamienCassou/pillar-documentation"&gt;Pillar&lt;/a&gt; markup language</string>
+	<key>name</key>
+	<string>Pillar</string>
+	<key>uuid</key>
+	<string>C32FC4FE-EC2C-4C36-8A9C-81E64CBBF880</string>
+</dict>
+</plist>
