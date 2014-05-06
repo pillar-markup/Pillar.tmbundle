@@ -1,5 +1,5 @@
-Textmate Installation:
+###Textmate Installation:
 
-    mkdir -p ~/Library/Application\ Support/Avian/Bundles
-    cd ~/Library/Application\ Support/Avian/Bundles
-    git clone https://Uko@github.com/pillar-markup/Pillar.tmbundle.git Pillar.tmbundle
+* Download the [latest release](https://github.com/pillar-markup/Pillar.tmbundle/releases/latest).
+* Unzip.
+* Double click on a bundle file to install it.
