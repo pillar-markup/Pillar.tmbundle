@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>beforeRunningCommand</key>
+	<string>saveActiveFile</string>
+	<key>command</key>
+	<string>#!/bin/sh
+
+#To define in TM2 Preferences
+#export PHARO_VM=/Users/bob/Pharo/VirtualMachines/pharo
+#export PILLAR_IMAGE=/Users/bob/Repositories/PharoBooks/BookSkeleton.git/Pharo.image
+
+BOOK_DIRECTORY=$(dirname $(dirname ${TM_FILEPATH}))
+HTML_PILLAR_FILE=${TM_FILEPATH}.html
+rm -f ${HTML_PILLAR_FILE}
+
+if [[ -x "${BOOK_DIRECTORY}/compile.sh" ]]; then
+	# It is a book chapter so render it using the book chapter HTML template
+	TITLE=" Book Chapter "
+	cd ${BOOK_DIRECTORY}
+	pillar export --to='HTML by chapter' ${TM_FILEPATH}
+	# ./compile.sh ${TM_FILEPATH}
+else
+	# It is not a book chapter so render it with a default template
+	TITLE=" File "
+	cd "${TM_BUNDLE_SUPPORT}"
+	rm -f pillarout.html
+	pillar export --to=html "${TM_FILEPATH}" &gt; pillarout.html 2&gt;/dev/null
+	mv -f pillarout.html "${HTML_PILLAR_FILE}"
+fi
+
+. "$TM_SUPPORT_PATH/lib/webpreview.sh"
+html_header "Pillar ${TITLE} Preview" "${HTML_PILLAR_FILE}"
+echo "&lt;base href=\"file://$HTML_PILLAR_FILE\"&gt;"
+cat $HTML_PILLAR_FILE
+html_footer
+</string>
+	<key>input</key>
+	<string>document</string>
+	<key>inputFormat</key>
+	<string>text</string>
+	<key>keyEquivalent</key>
+	<string>@r</string>
+	<key>name</key>
+	<string>Typeset and view</string>
+	<key>outputCaret</key>
+	<string>heuristic</string>
+	<key>outputFormat</key>
+	<string>html</string>
+	<key>outputLocation</key>
+	<string>newWindow</string>
+	<key>scope</key>
+	<string>source.pillar</string>
+	<key>uuid</key>
+	<string>0FC1D6E1-EE3D-4C62-A9E0-E07E302EE82D</string>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>

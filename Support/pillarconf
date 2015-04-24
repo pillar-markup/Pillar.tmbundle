@@ -1,0 +1,12 @@
+{
+    "title" : "Pillar Textmate Bundle",
+    "newLine" : #unix,
+    "headingLevelOffset" : 1,
+    "defaultScriptLanguage" : "smalltalk",
+    "configurations" : {
+        "html" : {
+            "outputType" : #html,
+            "template" : "templates/html.template"
+        }
+    }
+ }

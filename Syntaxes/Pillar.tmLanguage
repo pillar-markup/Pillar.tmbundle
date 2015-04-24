@@ -43,13 +43,13 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>==.+==</string>
+			<string>==[^==]==</string>
 			<key>name</key>
 			<string>markup.raw.pillar</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>@@.+@@</string>
+			<string>@@(.+|[^@@]+@@)</string>
 			<key>name</key>
 			<string>markup.other.subs­cript.pillar</string>
 		</dict>
