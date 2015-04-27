@@ -12,7 +12,7 @@
 #export PILLAR_IMAGE=/Users/bob/Repositories/PharoBooks/BookSkeleton.git/Pharo.image
 
 BOOK_DIRECTORY=$(dirname $(dirname ${TM_FILEPATH}))
-HTML_PILLAR_FILE=${TM_FILEPATH}.html
+HTML_PILLAR_FILE=${TM_FILEPATH%.*}.html
 rm -f ${HTML_PILLAR_FILE}
 
 if [[ -x "${BOOK_DIRECTORY}/compile.sh" ]]; then
