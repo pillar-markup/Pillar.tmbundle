@@ -22,6 +22,14 @@ if [[ -x "${BOOK_DIRECTORY}/compile.sh" ]]; then
 	TITLE=" Book Chapter "
 	cd ${BOOK_DIRECTORY}
 	$PILLAR_COMMAND export --baseDirectory="${BOOK_DIRECTORY}" --to='HTML by chapter' "${TM_FILEPATH}"
+
+	# debug
+	if [ $? -ne 0 ]; then
+			echo "&lt;b&gt;"
+	    echo "$PILLAR_COMMAND export --baseDirectory=${BOOK_DIRECTORY} --to='HTML by chapter' ${TM_FILEPATH}"
+		 echo "&lt;/b&gt;"
+		 exit
+	fi
 	
 	# perhaps we should use the book compilation script instead
 	# but it is more time consuming
