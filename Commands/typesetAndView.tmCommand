@@ -15,18 +15,23 @@ BOOK_DIRECTORY=$(dirname $(dirname ${TM_FILEPATH}))
 HTML_PILLAR_FILE=${TM_FILEPATH%.*}.html
 rm -f ${HTML_PILLAR_FILE}
 
+PILLAR_COMMAND="${PHARO_VM} ${PILLAR_IMAGE} pillar "
+
 if [[ -x "${BOOK_DIRECTORY}/compile.sh" ]]; then
 	# It is a book chapter so render it using the book chapter HTML template
 	TITLE=" Book Chapter "
 	cd ${BOOK_DIRECTORY}
-	pillar export --to='HTML by chapter' ${TM_FILEPATH}
-	# ./compile.sh ${TM_FILEPATH}
+	$PILLAR_COMMAND export --baseDirectory="${BOOK_DIRECTORY}" --to='HTML by chapter' "${TM_FILEPATH}"
+	
+	# perhaps we should use the book compilation script instead
+	# but it is more time consuming
+	# ./compile.sh ${TM_FILEPATH} 
 else
 	# It is not a book chapter so render it with a default template
 	TITLE=" File "
 	cd "${TM_BUNDLE_SUPPORT}"
 	rm -f pillarout.html
-	pillar export --to=html "${TM_FILEPATH}" &gt; pillarout.html 2&gt;/dev/null
+	$PILLAR_COMMAND export --baseDirectory=\"${TM_BUNDLE_SUPPORT}\" --to=html "${TM_FILEPATH}" &gt; pillarout.html 2&gt;/dev/null
 	mv -f pillarout.html "${HTML_PILLAR_FILE}"
 fi
 
