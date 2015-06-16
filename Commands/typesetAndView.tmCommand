@@ -15,7 +15,7 @@ BOOK_DIRECTORY=$(dirname $(dirname ${TM_FILEPATH}))
 HTML_PILLAR_FILE=${TM_FILEPATH%.*}.html
 rm -f ${HTML_PILLAR_FILE}
 
-PILLAR_COMMAND="${PHARO_VM} ${PILLAR_IMAGE} pillar "
+PILLAR_COMMAND="${PHARO_VM} --headless ${PILLAR_IMAGE} pillar "
 
 if [[ -x "${BOOK_DIRECTORY}/compile.sh" ]]; then
 	# It is a book chapter so render it using the book chapter HTML template
