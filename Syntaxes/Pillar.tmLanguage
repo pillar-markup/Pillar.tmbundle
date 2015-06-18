@@ -19,31 +19,31 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>"".+""</string>
+			<string>""[^""]+""</string>
 			<key>name</key>
 			<string>markup.bold.pillar</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>''.+''</string>
+			<string>''[^'']+''</string>
 			<key>name</key>
 			<string>markup.italic.pillar</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>--.+--</string>
+			<string>--[^--]+--</string>
 			<key>name</key>
 			<string>markup.other.stri­ket­hro­ugh.pillar</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>__.+__</string>
+			<string>__[^__]+__</string>
 			<key>name</key>
 			<string>markup.underline.pillar</string>
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>==[^==]==</string>
+			<string>==[^==]+==</string>
 			<key>name</key>
 			<string>markup.raw.pillar</string>
 		</dict>
@@ -61,7 +61,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>\*.+\*</string>
+			<string>\*[^\*]+\*</string>
 			<key>name</key>
 			<string>markup.underline.link.pillar</string>
 		</dict>
@@ -99,7 +99,7 @@
 		</dict>
 		<dict>
 			<key>match</key>
-			<string>@\w+</string>
+			<string>@(\w|:)+</string>
 			<key>name</key>
 			<string>entity.name.tag</string>
 		</dict>
